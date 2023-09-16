@@ -3,32 +3,38 @@
 @tailwind utilities;
 
 .animated {
-    animation-duration: 1s;
-    animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
 }
 
 @keyframes tada {
-    0% {
-      transform: scale3d(1, 1, 1);
-    }
-  
-    10%, 20% {
-      transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
-    }
-  
-    30%, 50%, 70%, 90% {
-      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-    }
-  
-    40%, 60%, 80% {
-      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-    }
-  
-    100% {
-      transform: scale3d(1, 1, 1);
-    }
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
-  
+
 .tada {
-    animation-name: tada;
+  animation-name: tada;
 }
