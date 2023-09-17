@@ -18,7 +18,7 @@
     ?>
 </head>
 
-<body>
+<body class="bg-green-50">
 
     <?php
 
@@ -78,27 +78,27 @@
                 default:
                     $type = "Erro";
             }
+        
+            $row_username = $row['username'];
+            $row_name = $row['name'];
 
-            echo ('
-                                    <tr>
+            echo <<< END
+                                    <tr onclick="window.location='/src/users_edit.php?username=$row_username';"
+                                        class="transition-colors duration-300 transform hover:bg-gray-100 cursor-pointer" >
                                         <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                             <div class="inline-flex items-center gap-x-3">
 
                                                 <div class="flex items-center gap-x-2">
                                                     <div>
-                                                        <h2 class="font-normal text-gray-800 ">' . $row['username'] . '</h2>
+                                                        <h2 class="font-normal text-gray-800 "> $row_username </h2>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">'
-                . $row['name'] .
-                '</td>
-                                        <td class="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">'
-                . $type .
-                '</td>
+                                        <td class="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap"> $row_name </td>
+                                        <td class="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap"> $type </td>
                                     </tr>
-        ');
+            END;
         }
     } else {
         echo '

@@ -75,4 +75,13 @@ function checkIfLoggedIn()
 
 }
 
+function doUserExist($username)
+{
+    if (mysqli_num_rows(searchUser($username)) == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 ?>

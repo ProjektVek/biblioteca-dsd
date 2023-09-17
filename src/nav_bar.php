@@ -5,7 +5,7 @@
 <nav x-data="{ isOpen: false }" class="relative bg-white shadow">
     <div class="container px-6 py-3 mx-auto md:flex">
         <div class="flex items-center justify-between">
-            <a href="/src/loginPage.php">
+            <a href="/src/books.php">
                 <img class="w-auto h-6 sm:h-7" src="./assets/images/logo.svg" alt="">
             </a>
 
@@ -44,7 +44,7 @@
 
                 ?>
 
-                <a href="#"
+                <a href="/src/users_edit.php?username=<?php echo $_SESSION['username']; ?>"
                     class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg hover:bg-gray-100 md:mx-2">Conta</a>
                 <a href="/src/php/logout.php"
                     class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg hover:bg-gray-100 md:mx-2">Sair</a>
