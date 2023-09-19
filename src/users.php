@@ -31,11 +31,18 @@
     }
 
     if (mysqli_num_rows($result) > 0) {
-        echo ('
+        echo <<< END
         <section class="container px-4 mx-auto">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <div class="flex items-center mt-4 gap-x-3">
                 </div>
+            </div>
+
+            <div class="flex justify-end mt-6">
+                <button onclick="window.location='./new_user.php';"
+                    class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-green-700 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">
+                Cadastrar Usuário
+                </button>
             </div>
 
             <div class="flex flex-col mt-6">
@@ -61,7 +68,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-        ');
+        END;
 
         while ($row = mysqli_fetch_assoc($result)) {
             $type;
