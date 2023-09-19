@@ -84,4 +84,71 @@ function doUserExist($username)
     }
 }
 
+function getUserAllInfo($username)
+{
+    $connection = openConnection();
+    $query = "SELECT * FROM Users
+            WHERE username = '" . $username . "'; ";
+
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    $userinfo = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $userinfo['username'] = $row['username'];
+        $userinfo['password'] = $row['password'];
+        $userinfo['name'] = $row['name'];
+        $userinfo['type'] = $row['type'];
+    }
+    return $userinfo;
+}
+
+function setUsername($username, $newUsername)
+{
+    $connection = openConnection();
+    $query = "UPDATE Users SET username = '" . $newUsername . "'
+            WHERE username = '" . $username . "'; ";
+
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    return $result;
+}
+
+function setName($username, $name)
+{
+    $connection = openConnection();
+    $query = "UPDATE Users SET name = '" . $name . "'
+            WHERE username = '" . $username . "'; ";
+
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    return $result;
+}
+
+function setPassword($username, $password)
+{   
+    $connection = openConnection();
+    $query = 'UPDATE Users SET password = "'.$password.'" 
+              WHERE username = "'.$username.'"; ' ;  
+
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    return $result;
+}
+
+function setUserType($username, $type)
+{
+    $connection = openConnection();
+    $query = "UPDATE Users SET type = " . $type . "
+            WHERE username = '" . $username . "'; ";
+
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    return $result;
+}
+
 ?>

@@ -5,6 +5,8 @@ include "users_crud.php";
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+echo "<script>alert('ok')</script>";
+
 $loginResult = checkLogin($username, $password);
 if ($loginResult) {
     session_start();

@@ -43,25 +43,25 @@
                 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div>
                         <label class="text-gray-700" for="username">Login</label>
-                        <input id="username" type="text" value="<?php echo $username ?>"
+                        <input id="username" name="username" type="text" value="<?php echo $username ?>"
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
                     </div>
 
                     <div>
                         <label class="text-gray-700" for="name">Nome</label>
-                        <input id="name" type="text" value="<?php echo $name ?>"
+                        <input id="name" name="name" type="text" value="<?php echo $name ?>"
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
                     </div>
 
                     <div>
                         <label class="text-gray-700" for="password">Senha</label>
-                        <input id="password" type="password" placeholder="Inalterada"
+                        <input id="password" name="password" type="password" placeholder="Inalterada"
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
                     </div>
 
                     <div>
                         <label class="text-gray-700" for="password">Confirmar Senha</label>
-                        <input id="passwordConfirmation" type="password" placeholder="Inalterada"
+                        <input id="passwordConfirmation" name="passwordConfirmation" type="password" placeholder="Inalterada"
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
                     </div>
 
@@ -89,7 +89,7 @@
                 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div class="flex justify-start mt-6">
                     <?php
-                    if ($_GET['message']=='sucess') { echo('<p class="text-green-600 my-2.5 animated tada">Alteração realizada com sucesso!</p>'); }
+                    if ($_GET['message']=='success') { echo('<p class="text-green-600 my-2.5 animated tada">Alteração realizada com sucesso!</p>'); }
                     else if ($_GET['message']=='unmatched') { echo('<p class="text-red-500 my-2.5 animated tada">As senhas não estão iguais</p>'); }
                     else if ($_GET['message']=='password-size') { echo('<p class="text-red-500 my-2.5 animated tada">Senha menor que 8 caracteres</p>'); }
                     else if ($_GET['message']=='login-size') { echo('<p class="text-red-500 my-2.5 animated tada">Login menor que 2 caracteres</p>'); }
