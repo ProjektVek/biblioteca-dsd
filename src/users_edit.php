@@ -91,6 +91,7 @@
                     <?php
                     if ($_GET['message']=='success') { echo('<p class="text-green-600 my-2.5 animated tada">Alteração realizada com sucesso!</p>'); }
                     else if ($_GET['message']=='unmatched') { echo('<p class="text-red-500 my-2.5 animated tada">As senhas não estão iguais</p>'); }
+                    else if ($_GET['message']=='duplicated') { echo('<p class="text-red-500 my-2.5 animated tada">Login já cadastrado!</p>'); }
                     else if ($_GET['message']=='password-size') { echo('<p class="text-red-500 my-2.5 animated tada">Senha menor que 8 caracteres</p>'); }
                     else if ($_GET['message']=='login-size') { echo('<p class="text-red-500 my-2.5 animated tada">Login menor que 2 caracteres</p>'); }
                     else if ($_GET['message']=='name-size') { echo('<p class="text-red-500 my-2.5 animated tada">Nome menor que 2 caracteres</p>'); }

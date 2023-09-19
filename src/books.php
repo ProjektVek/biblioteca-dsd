@@ -55,23 +55,25 @@
         ');
 
         while ($row = mysqli_fetch_assoc($result)) {
-            echo ('
-                                    <tr class="transition-colors duration-300 transform hover:bg-gray-100 cursor-pointer">
-                                    <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                        <div class="inline-flex items-center gap-x-3">
+            $isbn = $row['isbn'];
+            $title = $row['title'];
 
-                                            <div class="flex items-center gap-x-2">
-                                                <div>
-                                                    <h2 class="font-normal text-gray-800 ">' . $row['title'] . '</h2>
+            echo <<< END
+                                    <tr onclick="window.location='/src/books_edit.php?isbn=$isbn';"
+                                     class="transition-colors duration-300 transform hover:bg-gray-100 cursor-pointer">
+                                        <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                            <div class="inline-flex items-center gap-x-3">
+
+                                                <div class="flex items-center gap-x-2">
+                                                    <div>
+                                                        <h2 class="font-normal text-gray-800 ">$title</h2>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">'
-                . $row['isbn'] .
-                '</td>
-                                </tr>
-        ');
+                                        </td>
+                                        <td class="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">$isbn</td>
+                                    </tr>
+            END;
         }
     } else {
         echo '

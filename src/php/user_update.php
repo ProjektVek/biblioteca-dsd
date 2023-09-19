@@ -25,6 +25,9 @@ if (isset($_SERVER['HTTP_REFERER'])) {
         if (strlen($_POST['username'])<2){
             header('Location: /src/users_edit.php?username='.$username.'&message=login-size');
             exit;
+        } else if (($_POST['username']!=$username) && doUserExist($_POST['username'])){
+            header('Location: /src/users_edit.php?username='.$username.'&message=duplicated');
+            exit;
         } else if (strlen($_POST['name'])<2){
             header('Location: /src/users_edit.php?username='.$username.'&message=name-size');
             exit;
@@ -43,15 +46,6 @@ if (isset($_SERVER['HTTP_REFERER'])) {
         $userinfo = getUserAllInfo($username);
         $wasUpdated = false;
 
-        if($_POST['username']!=$userinfo['username']){
-            $queryResult = setUsername($userinfo['username'], $_POST['username']);
-            if($queryResult){
-                $wasUpdated = true;
-            } else {
-                header('Location: /src/users_edit.php?username='.$_POST['username'].'&message=server-error');
-                exit;
-            }
-        }
         if($_POST['name']!=$userinfo['name']){
             $queryResult = setName($userinfo['username'], $_POST['username']);
             if($queryResult){
@@ -73,6 +67,17 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 
         if(isset($_POST['type']) && ($_POST['type'] != $userinfo['type'])) {
             $queryResult = setUserType($userinfo['username'], $_POST['type']);
+            if($queryResult){
+                $wasUpdated = true;
+            } else {
+                header('Location: /src/users_edit.php?username='.$_POST['username'].'&message=server-error');
+                exit;
+            }
+        }
+
+        
+        if($_POST['username']!=$userinfo['username']){
+            $queryResult = setUsername($userinfo['username'], $_POST['username']);
             if($queryResult){
                 $wasUpdated = true;
             } else {
