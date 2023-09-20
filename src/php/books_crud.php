@@ -98,4 +98,17 @@ function registerBook($title, $isbn){
 
     return $result;
 }
+
+function deleteBook($isbn){
+    $connection = openConnection();
+    $query = <<< END
+    DELETE FROM Books WHERE isbn = '$isbn';
+    END;
+
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    return $result;
+}
+
 ?>

@@ -76,8 +76,15 @@ function checkIfLoggedIn()
 }
 
 function doUserExist($username)
-{
-    if (mysqli_num_rows(searchUser($username)) == 1) {
+{   
+    $connection = openConnection();
+    $query = "SELECT username FROM Users
+            WHERE username = '".$username."'; ";
+
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    if (mysqli_num_rows($result) == 1) {
         return true;
     } else {
         return false;
@@ -161,6 +168,18 @@ function registerUser($username, $name, $password, $type){
         $type
     );
     END;
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    return $result;
+}
+
+function deleteUser($username){
+    $connection = openConnection();
+    $query = <<< END
+    DELETE FROM Users WHERE username = '$username';
+    END;
+
     $result = mysqli_query($connection, $query);
     mysqli_close($connection);
 

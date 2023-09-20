@@ -23,13 +23,19 @@ if (isset($_SERVER['HTTP_REFERER'])) {
     } else {
 
         if (strlen($_POST['username'])<2){
-            header('Location: /src/users_edit.php?username='.$username.'&message=login-size');
+            header('Location: /src/users_edit.php?username='.$username.'&message=min-login-size');
+            exit;
+        } else if (strlen($_POST['username'])>50){
+            header('Location: /src/users_edit.php?username='.$username.'&message=max-login-size');
             exit;
         } else if (($_POST['username']!=$username) && doUserExist($_POST['username'])){
             header('Location: /src/users_edit.php?username='.$username.'&message=duplicated');
             exit;
         } else if (strlen($_POST['name'])<2){
-            header('Location: /src/users_edit.php?username='.$username.'&message=name-size');
+            header('Location: /src/users_edit.php?username='.$username.'&message=min-name-size');
+            exit;
+        } else if (strlen($_POST['name'])>50){
+            header('Location: /src/users_edit.php?username='.$username.'&message=max-name-size');
             exit;
         } else if ($_POST['password']!=$_POST['passwordConfirmation']) {
             header('Location: /src/users_edit.php?username='.$username.'&message=unmatched');
@@ -37,7 +43,11 @@ if (isset($_SERVER['HTTP_REFERER'])) {
         } else if ($_POST['password']!="" && $_POST['passwordConfirmation']!="") {
 
             if (strlen($_POST['password'])<8 || strlen($_POST['passwordConfirmation'])<8) {
-                header('Location: /src/users_edit.php?username='.$username.'&message=password-size');
+                header('Location: /src/users_edit.php?username='.$username.'&message=min-password-size');
+                exit;
+            }
+            if (strlen($_POST['password'])>50 || strlen($_POST['passwordConfirmation'])>50) {
+                header('Location: /src/users_edit.php?username='.$username.'&message=max-password-size');
                 exit;
             }
 
@@ -47,7 +57,7 @@ if (isset($_SERVER['HTTP_REFERER'])) {
         $wasUpdated = false;
 
         if($_POST['name']!=$userinfo['name']){
-            $queryResult = setName($userinfo['username'], $_POST['username']);
+            $queryResult = setName($userinfo['username'], $_POST['name']);
             if($queryResult){
                 $wasUpdated = true;
             } else {
