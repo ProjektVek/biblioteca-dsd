@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
-    <title>Editar usuário</title>
+    <title>Cadastrar usuário</title>
     <?php
 
     include "./php/users_crud.php";
@@ -71,12 +71,15 @@
                 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div class="flex justify-start mt-6">
                     <?php
-                    if ($_GET['message']=='success') { echo('<p class="text-green-600 my-2.5 animated tada">Alteração realizada com sucesso!</p>'); }
+                    if ($_GET['message']=='success') { echo('<p class="text-green-600 my-2.5 animated tada">Cadastro realizado com sucesso!</p>'); }
                     else if ($_GET['message']=='unmatched') { echo('<p class="text-red-500 my-2.5 animated tada">As senhas não estão iguais</p>'); }
                     else if ($_GET['message']=='duplicated') { echo('<p class="text-red-500 my-2.5 animated tada">Login já cadastrado!</p>'); }
-                    else if ($_GET['message']=='password-size') { echo('<p class="text-red-500 my-2.5 animated tada">Senha menor que 8 caracteres</p>'); }
-                    else if ($_GET['message']=='login-size') { echo('<p class="text-red-500 my-2.5 animated tada">Login menor que 2 caracteres</p>'); }
-                    else if ($_GET['message']=='name-size') { echo('<p class="text-red-500 my-2.5 animated tada">Nome menor que 2 caracteres</p>'); }
+                    else if ($_GET['message']=='min-password-size') { echo('<p class="text-red-500 my-2.5 animated tada">Senha menor que 8 caracteres</p>'); }
+                    else if ($_GET['message']=='max-password-size') { echo('<p class="text-red-500 my-2.5 animated tada">Senha maior que 50 caracteres</p>'); }
+                    else if ($_GET['message']=='min-login-size') { echo('<p class="text-red-500 my-2.5 animated tada">Login menor que 2 caracteres</p>'); }
+                    else if ($_GET['message']=='max-login-size') { echo('<p class="text-red-500 my-2.5 animated tada">Login maior que 2 caracteres</p>'); }
+                    else if ($_GET['message']=='min-name-size') { echo('<p class="text-red-500 my-2.5 animated tada">Nome menor que 2 caracteres</p>'); }
+                    else if ($_GET['message']=='max-name-size') { echo('<p class="text-red-500 my-2.5 animated tada">Nome maior que 2 caracteres</p>'); }
                     else if ($_GET['message']=='server-error') { echo('<p class="text-red-500 my-2.5 animated tada">Erro de servidor</p>'); }
                     ?>
                     </div>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
-    <title>Editar Livro</title>
+    <title>Cadastrar Livro</title>
     <?php
 
     include "./php/users_crud.php";
@@ -47,7 +47,7 @@
                 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div class="flex justify-start mt-6">
                     <?php
-                    if ($_GET['message']=='success') { echo('<p class="text-green-600 my-2.5 animated tada">Alteração realizada com sucesso!</p>'); }
+                    if ($_GET['message']=='success') { echo('<p class="text-green-600 my-2.5 animated tada">Cadastro realizado com sucesso!</p>'); }
                     else if ($_GET['message']=='min-title-size') { echo('<p class="text-red-500 my-2.5 animated tada">Título menor que 1 caracter</p>'); }
                     else if ($_GET['message']=='max-title-size') { echo('<p class="text-red-500 my-2.5 animated tada">Título maior que 60 caracteres</p>'); }
                     else if ($_GET['message']=='min-isbn-size') { echo('<p class="text-red-500 my-2.5 animated tada">ISBN menor que 10 caracteres</p>'); }

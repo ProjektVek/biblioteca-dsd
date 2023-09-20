@@ -151,4 +151,20 @@ function setUserType($username, $type)
     return $result;
 }
 
+function registerUser($username, $name, $password, $type){
+    $connection = openConnection();
+    $query = <<< END
+    INSERT INTO Users VALUES (
+        '$username',
+        '$password',
+        '$name',
+        $type
+    );
+    END;
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    return $result;
+}
+
 ?>

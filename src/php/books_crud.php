@@ -82,4 +82,20 @@ function setTitle($isbn, $title)
 
     return $result;
 }
+
+function registerBook($title, $isbn){
+    $connection = openConnection();
+    $query = <<< END
+    INSERT INTO Books VALUES (
+        '$title',
+        '$isbn',
+        NULL
+    );
+    END;
+
+    $result = mysqli_query($connection, $query);
+    mysqli_close($connection);
+
+    return $result;
+}
 ?>

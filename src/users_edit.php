@@ -89,7 +89,7 @@
                 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div class="flex justify-start mt-6">
                     <?php
-                    if ($_GET['message']=='success') { echo('<p class="text-green-600 my-2.5 animated tada">Alteração realizada com sucesso!</p>'); }
+                    if ($_GET['message']=='success') { echo('<p class="text-green-600 my-2.5 animated tada">Alterações realizadas com sucesso!</p>'); }
                     else if ($_GET['message']=='unmatched') { echo('<p class="text-red-500 my-2.5 animated tada">As senhas não estão iguais</p>'); }
                     else if ($_GET['message']=='duplicated') { echo('<p class="text-red-500 my-2.5 animated tada">Login já cadastrado!</p>'); }
                     else if ($_GET['message']=='password-size') { echo('<p class="text-red-500 my-2.5 animated tada">Senha menor que 8 caracteres</p>'); }
