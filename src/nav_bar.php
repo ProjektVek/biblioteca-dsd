@@ -54,6 +54,17 @@
             $currentLocation = $_SERVER['SCRIPT_NAME'];
             $scriptName = explode("/", $currentLocation);
             $scriptName = end($scriptName);
+
+            if($scriptName == "books_edit.php"){
+                $scriptName = "books.php";
+            } else if ($scriptName == "users_edit.php"){
+                if($_SESSION['usertype']!=3){
+                    $scriptName = "books.php";
+                } else {
+                    $scriptName = "users.php";
+                }
+                
+            }
             ?>
             <form action="./<?php echo $scriptName; ?>" method="get">
                 <div class="relative mt-4 md:mt-0">

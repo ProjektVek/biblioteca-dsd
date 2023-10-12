@@ -97,6 +97,8 @@ if (isset($_SERVER['HTTP_REFERER'])) {
         }
 
          if($wasUpdated){
+             checkIfLoggedIn();
+             $_SESSION['username'] = $_POST['username'];
              header('Location: /src/users_edit.php?username='.$_POST['username'].'&message=success');
              exit;
          } else {
