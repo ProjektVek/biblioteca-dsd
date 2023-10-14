@@ -1,7 +1,7 @@
 <?php
 function openConnection()
 {
-    $db_host = 'localhost';
+    $db_host = 'database';
     $db_user = 'dsdcc8';
     $db_password = 'cc8@unip';
     $db_name = 'Biblioteca';
