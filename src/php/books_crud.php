@@ -88,8 +88,7 @@ function registerBook($title, $isbn){
     $query = <<< END
     INSERT INTO Books VALUES (
         '$title',
-        '$isbn',
-        NULL
+        '$isbn'
     );
     END;
 

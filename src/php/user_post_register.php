@@ -6,6 +6,7 @@ function returnToRegister($message)
 {
     if ($message == "success") {
         echo "<script>window.location='/src/new_user.php?message=success'</script>";
+        exit;
     } else {
         $username = $_POST['username'];
         $name = $_POST['name'];
@@ -19,6 +20,7 @@ function returnToRegister($message)
             </form>
             <script>document.getElementById('userinfo').submit()</script>
             END;
+        exit;
     }
 }
 

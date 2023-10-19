@@ -2,7 +2,7 @@
 function openConnection()
 {
     $db_host_original = 'database';
-    $db_host_replica = 'localhost';
+    $db_host_replica = 'biblioteca.io';
     $db_user = 'dsdcc8';
     $db_password = 'cc8@unip';
     $db_name = 'Biblioteca';
